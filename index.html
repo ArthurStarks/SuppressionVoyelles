@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DisemVowel - Suppression de Voyelles</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <h1>Dsm<span>Vwl</span></h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#hero">Accueil</a></li>
+            <li><a href="#tool">Outil</a></li>
+            <li><a href="#examples">Exemples</a></li>
+            <li><a href="#comments">Commentaires</a></li>
+            <li><a href="#about">À propos</a></li>
+          </ul>
+        </nav>
+        <div class="theme-toggle">
+          <i class="fas fa-moon"></i>
+        </div>
+      </div>
+    </header>
+
+    <section id="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Supprimez les voyelles de votre texte</h1>
+          <p>
+            Un outil simple et efficace pour transformer votre texte en
+            supprimant toutes les voyelles.
+          </p>
+          <a href="#tool" class="btn">Essayer gratuitement</a>
+        </div>
+        <div class="hero-image">
+          <div class="text-animation">
+            <span class="original">Hello World!</span>
+            <span class="transformed">Hll Wrld!</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tool">
+      <div class="container">
+        <h2>Outil de suppression de voyelles</h2>
+        <div class="tool-container">
+          <div class="form-group">
+            <label for="inputText">Texte Original</label>
+            <textarea
+              id="inputText"
+              placeholder="Entrez votre texte ici..."
+            ></textarea>
+          </div>
+
+          <div class="buttons">
+            <button id="disemvowelBtn" class="btn primary">
+              Supprimer les Voyelles
+            </button>
+            <button id="copyBtn" class="btn secondary" disabled>
+              Copier le résultat
+            </button>
+            <button id="clearBtn" class="btn secondary">Effacer</button>
+          </div>
+
+          <div id="resultContainer" class="form-group hidden">
+            <label for="outputText">Résultat (sans voyelles)</label>
+            <div id="outputText" class="result"></div>
+            <div class="stats">
+              <div class="stat">
+                <span id="originalLength">0</span>
+                <span>Caractères originaux</span>
+              </div>
+              <div class="stat">
+                <span id="resultLength">0</span>
+                <span>Caractères restants</span>
+              </div>
+              <div class="stat">
+                <span id="vowelsRemoved">0</span>
+                <span>Voyelles supprimées</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="examples">
+      <div class="container">
+        <h2>Exemples d'utilisation</h2>
+        <div class="examples-grid">
+          <div class="example-card">
+            <div class="example-icon">
+              <i class="fas fa-comment-slash"></i>
+            </div>
+            <h3>Modération de commentaires</h3>
+            <p>
+              Neutralisez les commentaires indésirables en supprimant leurs
+              voyelles, les rendant moins lisibles.
+            </p>
+            <div class="example-demo">
+              <div class="before">Ce site est nul !</div>
+              <div class="after">C st st nl !</div>
+            </div>
+          </div>
+          <div class="example-card">
+            <div class="example-icon">
+              <i class="fas fa-puzzle-piece"></i>
+            </div>
+            <h3>Jeux et énigmes</h3>
+            <p>
+              Créez des énigmes amusantes en supprimant les voyelles de phrases
+              ou de mots.
+            </p>
+            <div class="example-demo">
+              <div class="before">Bonjour tout le monde</div>
+              <div class="after">Bnjr tt l mnd</div>
+            </div>
+          </div>
+          <div class="example-card">
+            <div class="example-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3>Exercice mental</h3>
+            <p>
+              Entraînez votre cerveau à reconnaître des mots sans voyelles pour
+              améliorer vos capacités cognitives.
+            </p>
+            <div class="example-demo">
+              <div class="before">Intelligence artificielle</div>
+              <div class="after">ntllgnc rtfcll</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section de commentaires -->
+    <section id="comments">
+      <div class="container">
+        <h2>Commentaires</h2>
+        <div class="comments-container">
+          <div class="comment-form">
+            <h3>Ajouter un commentaire</h3>
+            <div class="form-group">
+              <label for="commentName">Nom</label>
+              <input type="text" id="commentName" placeholder="Votre nom" />
+            </div>
+            <div class="form-group">
+              <label for="commentText">Commentaire</label>
+              <textarea
+                id="commentText"
+                placeholder="Votre commentaire..."
+              ></textarea>
+            </div>
+            <div class="comments-filter">
+              <label>
+                <input type="checkbox" id="autoDisemvowel" />
+                Supprimer automatiquement les voyelles de ce commentaire
+              </label>
+            </div>
+            <button id="submitComment" class="btn primary">Publier</button>
+          </div>
+
+          <div class="comments-list">
+            <h3>Commentaires récents <span id="commentCount">(0)</span></h3>
+            <div id="commentsList">
+              <!-- Les commentaires seront ajoutés ici dynamiquement -->
+              <div class="no-comments">
+                Aucun commentaire pour le moment. Soyez le premier à commenter !
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2>À propos de DisemVowel</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              DisemVowel est un outil simple qui supprime toutes les voyelles
+              (a, e, i, o, u) de n'importe quel texte. Cette technique, appelée
+              "disemvoweling", est parfois utilisée sur internet pour rendre un
+              texte moins lisible tout en conservant sa structure générale.
+            </p>
+            <p>
+              Notre outil utilise JavaScript pour analyser votre texte et
+              supprimer instantanément toutes les voyelles, qu'elles soient en
+              majuscules ou en minuscules.
+            </p>
+            <p>
+              Cet outil est gratuit et open-source. N'hésitez pas à l'utiliser
+              pour vos projets personnels ou professionnels.
+            </p>
+          </div>
+          <div class="about-stats">
+            <div class="stat-card">
+              <div class="stat-number">5</div>
+              <div class="stat-label">Voyelles supprimées</div>
+              <div class="stat-detail">a, e, i, o, u</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Gratuit</div>
+              <div class="stat-detail">Aucun coût caché</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">∞</div>
+              <div class="stat-label">Utilisations</div>
+              <div class="stat-detail">Sans limite</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <h2>Dsm<span>Vwl</span></h2>
+            <p>Suppression de voyelles simple et efficace</p>
+          </div>
+          <div class="footer-links">
+            <h3>Liens rapides</h3>
+            <ul>
+              <li><a href="#hero">Accueil</a></li>
+              <li><a href="#tool">Outil</a></li>
+              <li><a href="#examples">Exemples</a></li>
+              <li><a href="#comments">Commentaires</a></li>
+              <li><a href="#about">À propos</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h3>Contact</h3>
+            <p>
+              <i class="fas fa-envelope"></i>sanctifieryawmensah55@gmail.com
+            </p>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2023 DisemVowel. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
