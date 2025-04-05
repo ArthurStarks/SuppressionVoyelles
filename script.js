@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const vowelsRemoved = document.getElementById("vowelsRemoved");
   const themeToggle = document.querySelector(".theme-toggle");
 
-  // DOM Elements - Comments Section
+  // DOM Elements -- Comments Section
   const commentName = document.getElementById("commentName");
   const commentText = document.getElementById("commentText");
   const submitComment = document.getElementById("submitComment");
